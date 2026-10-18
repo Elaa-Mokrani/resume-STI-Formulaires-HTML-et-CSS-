@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Résumé : Formulaires HTML et CSS</title>
+<style>
+:root{--bg:#fff8ee;--tx:#1f2340;--card:#ffffff;--code:#23263a;--codetx:#f4f4ff;
+--c1:#2563eb;--c2:#f97316;--c3:#16a34a;--c4:#db2777;--c5:#7c3aed;--c6:#0891b2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14162b;--tx:#f2f2ff;--card:#1e2140;--code:#0d0f20}}
+:root[data-theme="dark"]{--bg:#14162b;--tx:#f2f2ff;--card:#1e2140;--code:#0d0f20}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;line-height:1.5}
+.w{max-width:900px;margin:auto;padding:16px}
+header{background:linear-gradient(120deg,var(--c1),var(--c5) 50%,var(--c4));color:#fff;border-radius:20px;padding:28px 22px;margin-bottom:18px}
+header h1{margin:0 0 6px;font-size:clamp(1.6rem,5vw,2.5rem)}
+header p{margin:0;opacity:.95}
+.part{font-size:1.5rem;margin:28px 0 10px;padding:10px 16px;border-radius:14px;color:#fff;font-weight:bold}
+.p1{background:var(--c1)}.p2{background:var(--c5)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border-radius:16px;padding:14px 16px;border-top:7px solid var(--c);box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.card h3{margin:0 0 6px;color:var(--c)}
+.card p{margin:4px 0}
+pre{background:var(--code);color:var(--codetx);border-radius:10px;padding:10px 12px;overflow-x:auto;font-size:.82rem;margin:8px 0;line-height:1.45}
+code{background:var(--c);color:#fff;border-radius:6px;padding:1px 6px;font-size:.85em}
+pre code{background:none;padding:0;color:inherit}
+.k{color:#ffb86b}.s{color:#9be37a}.t{color:#ff8fa3}
+.demo{border:2px dashed var(--c);border-radius:12px;padding:10px;margin:8px 0;background:var(--bg)}
+.demo fieldset{border:2px solid var(--c1);border-radius:8px;margin:0 0 8px;color:var(--tx)}
+.demo legend{background:var(--c1);color:#fff;border-radius:6px;padding:1px 10px}
+.demo label{margin-right:4px}
+.demo input,.demo select{max-width:100%}
+.tag{display:inline-block;background:var(--c);color:#fff;border-radius:20px;padding:2px 12px;font-size:.85rem;margin:2px 2px 2px 0}
+.box{margin:10px auto;max-width:360px;font-weight:bold;color:#111;text-align:center}
+.box div{padding:14px;border-radius:6px}
+.m{background:#ffb27a}.b{background:#ffe066;border:3px solid #f59e0b}.pd{background:#7ee08a}.ct{background:#8ecbff;padding:16px}
+.box small{display:block;font-weight:normal;font-size:.75rem}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.bx{padding:10px 14px;background:var(--card);border:3px solid var(--c4);border-radius:12px}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:.9rem}
+th{background:var(--c5);color:#fff;padding:6px;text-align:left}
+td{padding:6px;border-bottom:1px solid rgba(128,128,128,.35)}
+.tip{background:#fde047;color:#3b2f00;border-radius:12px;padding:10px 14px;margin:14px 0;font-weight:bold}
+footer{text-align:center;opacity:.7;margin:24px 0}
+</style>
+</head>
+<body>
+<div class="w">
+<header>
+<h1>Formulaires HTML et CSS</h1>
+<p>Fiche de révision, 3ème SI : l’essentiel en une page, avec schémas et exemples.</p>
+</header>
+
+<div class="part p1">Partie 1 : Les formulaires HTML</div>
+
+<div class="g">
+<div class="card" style="--c:var(--c1)">
+<h3>Structure de base</h3>
+<p>Un formulaire s’écrit avec la balise <code>&lt;form&gt;</code>. L’attribut <code>name</code> l’identifie.</p>
+<pre><span class="t">&lt;form</span> <span class="k">name</span>=<span class="s">"f"</span><span class="t">&gt;</span>
+  ...champs...
+<span class="t">&lt;/form&gt;</span></pre>
+</div>
+<div class="card" style="--c:var(--c2)">
+<h3>Champs courants</h3>
+<table>
+<tr><th>Élément</th><th>Rôle</th></tr>
+<tr><td><code>type="text"</code></td><td>texte court</td></tr>
+<tr><td><code>&lt;textarea&gt;</code></td><td>texte long</td></tr>
+<tr><td><code>type="submit"</code></td><td>envoyer</td></tr>
+<tr><td><code>type="reset"</code></td><td>réinitialiser</td></tr>
+</table>
+</div>
+</div>
+
+<div class="card" style="--c:var(--c3);margin-top:14px">
+<h3>Attributs importants</h3>
+<span class="tag" style="--c:var(--c4)">required : champ obligatoire</span>
+<span class="tag" style="--c:var(--c5)">size : largeur en caractères</span>
+<span class="tag" style="--c:var(--c6)">autofocus : curseur au chargement</span>
+<span class="tag" style="--c:var(--c2)">placeholder : texte d’aide</span>
+<p><b>label</b> : relie un libellé à un champ grâce à <code>for</code> = <code>id</code> (le clic sur le texte active le champ).</p>
+<pre><span class="t">&lt;label</span> <span class="k">for</span>=<span class="s">"email"</span><span class="t">&gt;</span>E-mail :<span class="t">&lt;/label&gt;</span>
+<span class="t">&lt;input</span> <span class="k">type</span>=<span class="s">"email"</span> <span class="k">id</span>=<span class="s">"email"</span> <span class="k">required</span><span class="t">&gt;</span></pre>
+</div>
+
+<div class="card" style="--c:var(--c4);margin-top:14px">
+<h3>Organiser : fieldset, legend, hr</h3>
+<p><code>fieldset</code> = cadre qui regroupe, <code>legend</code> = son titre, <code>hr</code> = ligne de séparation. Voici le rendu :</p>
+<div class="demo" style="--c:var(--c4)">
+<fieldset><legend>Informations personnelles</legend>
+<label>Nom :</label><input type="text" size="10"> <label>Email :</label><input type="email" size="12"></fieldset>
+<hr>
+<fieldset><legend>Préférences de compte</legend>
+<label>Newsletter :</label><input type="checkbox"> <label>Thème :</label><select><option>Clair</option><option>Sombre</option></select></fieldset>
+<input type="submit" value="Envoyer">
+</div>
+</div>
+
+<div class="g" style="margin-top:14px">
+<div class="card" style="--c:var(--c6)">
+<h3>Cases à cocher</h3>
+<p>Plusieurs choix possibles.</p>
+<div class="demo" style="--c:var(--c6)"><input type="checkbox" id="a1"><label for="a1">HTML</label> <input type="checkbox" id="a2" checked><label for="a2">CSS</label></div>
+<pre><span class="t">&lt;input</span> <span class="k">type</span>=<span class="s">"checkbox"</span> <span class="k">id</span>=<span class="s">"html"</span><span class="t">&gt;</span></pre>
+</div>
+<div class="card" style="--c:var(--c2)">
+<h3>Boutons radio</h3>
+<p>Un seul choix : même <code>name</code> pour tout le groupe.</p>
+<div class="demo" style="--c:var(--c2)"><input type="radio" name="n" id="r1"><label for="r1">Licence</label> <input type="radio" name="n" id="r2"><label for="r2">Master</label></div>
+<pre><span class="t">&lt;input</span> <span class="k">type</span>=<span class="s">"radio"</span> <span class="k">name</span>=<span class="s">"niveau"</span><span class="t">&gt;</span></pre>
+</div>
+<div class="card" style="--c:var(--c5)">
+<h3>Liste déroulante</h3>
+<p>Beaucoup d’options dans peu de place.</p>
+<div class="demo" style="--c:var(--c5)"><select><option>France</option><option>Canada</option></select></div>
+<pre><span class="t">&lt;select</span> <span class="k">name</span>=<span class="s">"pays"</span><span class="t">&gt;</span>
+ <span class="t">&lt;option&gt;</span>France<span class="t">&lt;/option&gt;</span>
+<span class="t">&lt;/select&gt;</span></pre>
+</div>
+</div>
+
+<div class="card" style="--c:var(--c1);margin-top:14px">
+<h3>Types de champs de l’exercice d’inscription</h3>
+<div class="demo" style="--c:var(--c1)">
+Date <input type="date"> Couleur <input type="color" value="#ff4d6d"> Tél <input type="tel" size="8"><br>
+Niveau <input type="range"> Mot de passe <input type="password" size="8">
+</div>
+<p><code>date</code>, <code>color</code>, <code>tel</code>, <code>range</code> (curseur), <code>password</code> (caractères masqués), <code>email</code>.</p>
+</div>
+
+<div class="part p2">Partie 2 : Le CSS</div>
+
+<div class="g">
+<div class="card" style="--c:var(--c5)">
+<h3>Lier le CSS au HTML</h3>
+<p>Fichier externe <code>.css</code>, lien dans le <code>&lt;head&gt;</code> : code séparé, réutilisable, plus rapide.</p>
+<pre><span class="t">&lt;link</span> <span class="k">rel</span>=<span class="s">"stylesheet"</span> <span class="k">href</span>=<span class="s">"styles.css"</span><span class="t">&gt;</span></pre>
+</div>
+<div class="card" style="--c:var(--c2)">
+<h3>Syntaxe</h3>
+<pre><span class="t">selecteur</span> {
+  <span class="k">propriete</span>: valeur;
+}</pre>
+</div>
+</div>
+
+<div class="card" style="--c:var(--c4);margin-top:14px">
+<h3>Les sélecteurs</h3>
+<table>
+<tr><th>Sélecteur</th><th>Cible</th><th>Exemple</th></tr>
+<tr><td><code>*</code></td><td>tous les éléments</td><td><code>* {…}</code></td></tr>
+<tr><td><code>p</code></td><td>toutes les balises p</td><td><code>p {color:blue}</code></td></tr>
+<tr><td><code>#id</code></td><td>un élément unique</td><td><code>#header</code></td></tr>
+<tr><td><code>.classe</code></td><td>plusieurs éléments</td><td><code>.titre</code></td></tr>
+<tr><td><code>p span</code></td><td>span dans un p</td><td>descendant</td></tr>
+<tr><td><code>h1, h2</code></td><td>plusieurs sélecteurs</td><td>virgule</td></tr>
+<tr><td><code>a:hover</code></td><td>au survol</td><td>pseudo-classe</td></tr>
+<tr><td><code>input[type="text"]</code></td><td>selon un attribut</td><td>attribut</td></tr>
+</table>
+<p><span class="tag" style="--c:var(--c3)">:link non visité</span><span class="tag" style="--c:var(--c5)">:visited visité</span><span class="tag" style="--c:var(--c2)">:hover survol</span><span class="tag" style="--c:var(--c4)">:active pendant le clic</span><span class="tag" style="--c:var(--c6)">:focus champ actif</span></p>
+<div class="tip">ID = unique dans la page. Classe = réutilisable, plusieurs classes possibles sur un même élément. On préfère les classes.</div>
+</div>
+
+<div class="g">
+<div class="card" style="--c:var(--c1)">
+<h3>Mise en forme du texte</h3>
+<table>
+<tr><td><code>font-family</code></td><td>police</td></tr>
+<tr><td><code>font-size</code></td><td>taille</td></tr>
+<tr><td><code>font-weight</code></td><td>épaisseur (bold)</td></tr>
+<tr><td><code>font-style</code></td><td>italic</td></tr>
+<tr><td><code>text-align</code></td><td>alignement</td></tr>
+<tr><td><code>color</code></td><td>couleur</td></tr>
+<tr><td><code>text-shadow</code></td><td>ombre</td></tr>
+<tr><td><code>text-transform</code></td><td>majuscules…</td></tr>
+</table>
+<div class="demo" style="--c:var(--c1);font-family:Arial,sans-serif;font-weight:bold;font-style:italic;text-align:center;color:#db2777;text-shadow:2px 2px 4px #888;text-transform:uppercase">Exemple de texte</div>
+</div>
+<div class="card" style="--c:var(--c3)">
+<h3>Arrière-plans</h3>
+<table>
+<tr><td><code>background-color</code></td><td>couleur</td></tr>
+<tr><td><code>background-image</code></td><td><code>url('img.jpg')</code></td></tr>
+<tr><td><code>background-repeat</code></td><td>repeat, no-repeat, repeat-x, repeat-y</td></tr>
+<tr><td><code>background-size</code></td><td>auto, cover, contain, 100px 50px</td></tr>
+<tr><td><code>background</code></td><td>raccourci</td></tr>
+</table>
+<pre><span class="k">background</span>: #fff url('p.png') no-repeat center;</pre>
+</div>
+</div>
+
+<div class="card" style="--c:var(--c2);margin-top:14px">
+<h3>Les bordures</h3>
+<p><code>border-color</code>, <code>border-style</code> (solid, dashed, dotted, double), <code>border-width</code>, <code>border-radius</code> (50 % = cercle). Raccourci : <code>border: 3px dashed red;</code></p>
+<div class="row">
+<div class="bx" style="border:3px solid #2563eb">solid</div>
+<div class="bx" style="border:3px dashed #16a34a">dashed</div>
+<div class="bx" style="border:3px dotted #db2777">dotted</div>
+<div class="bx" style="border:5px double #7c3aed">double</div>
+<div class="bx" style="border:3px solid #f97316;border-radius:25px">radius</div>
+</div>
+</div>
+
+<div class="card" style="--c:var(--c6);margin-top:14px">
+<h3>Margin et padding : le modèle de boîte</h3>
+<div class="box">
+<div class="m">margin<small>espace à l’extérieur</small>
+<div class="b">border<small>la bordure</small>
+<div class="pd">padding<small>espace à l’intérieur</small>
+<div class="ct">contenu<small>width × height</small></div></div></div></div>
+</div>
+<pre><span class="k">margin</span>: 10px 20px 15px 25px;  <span style="color:#9aa">/* haut, droite, bas, gauche */</span>
+<span class="k">padding</span>: 10px 20px;           <span style="color:#9aa">/* haut/bas, gauche/droite */</span></pre>
+<table>
+<tr><th>Margin</th><th>Padding</th></tr>
+<tr><td>Sépare les éléments entre eux</td><td>Sépare le contenu de sa bordure</td></tr>
+<tr><td>Valeurs négatives possibles, <code>auto</code> centre un bloc</td><td>Pas de valeurs négatives, agrandit la boîte (sauf <code>box-sizing: border-box</code>)</td></tr>
+</table>
+</div>
+
+
+<footer>Résumé réalisé Par Elaa MOKRANI </footer>
+</div>
+</body>
+</html>
